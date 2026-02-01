@@ -1,6 +1,15 @@
 # TFM-NetActivity
 Master’s Thesis (TFM) project focused on the adaptation and extension of the NetActivity framework for biological knowledge graph analysis.
 
-Supervisor: Carlos Ruiz Arenas
+## Author
+Patrick Padmore Mc Calla
 
-Universidad de Navarra
+## Supervisor
+Carlos Ruiz Arenas  
+University of Navarra
+
+## Structure
+- data/: raw and processed datasets
+- src/: source code for data processing, models, and graphs
+- notebooks/: exploratory analysis
+- results/: figures and tables
