@@ -1,8 +1,0 @@
-src,dst,weight
-A,B,1
-A,C,2
-B,D,1
-C,D,3
-D,E,1
-E,A,1
-E,C,2
