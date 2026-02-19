@@ -210,3 +210,11 @@ __marimo__/
 # Generated data and results
 /data/raw/
 /results/
+
+# HPC generated
+.venv/
+logs/
+/results/
+/data/raw/
+__pycache__/
+.ipynb_checkpoints/
