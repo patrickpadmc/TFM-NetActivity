@@ -3,8 +3,8 @@
 # omnipath — get_data.sh
 # Fuente: OmniPath (archive.omnipathdb.org)
 # Archivos:
-#   - omnipath_webservice_interactions__latest.tsv.gz  → ppi, dorothea
-#   - omnipath_webservice_enz_sub__latest.tsv.gz       → dephosphorylation
+#   - omnipath_webservice_interactions__latest.tsv.gz  -> ppi, dorothea
+#   - omnipath_webservice_enz_sub__latest.tsv.gz       -> dephosphorylation
 # Contiene: GEN-ppi-GEN, GEN-pho-GEN, GEN-dph-GEN
 #
 # NOTA: dorothea_AB y dorothea_CD usan el mismo archivo de interacciones.
