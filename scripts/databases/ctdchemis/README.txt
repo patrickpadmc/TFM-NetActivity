@@ -2,10 +2,11 @@ DATABASE:     Comparative Toxigenomics Database — ctdchemis
 SOURCE:       https://ctdbase.org
 FILE:         CTD_chemicals_diseases.tsv.gz
 FORMAT:       TSV comprimido (gzip)
+PUBLICATION:  https://doi.org/10.1093/nar/gkae883
 
 RELATIONS:
-  CPD-cau-DIS   Compound → causes  → Disease
-  CPD-trt-DIS   Compound → treats  → Disease
+  CPD-cau-DIS   Compound -> causes  -> Disease
+  CPD-trt-DIS   Compound -> treats  -> Disease
 
 GENE ID:      N/A (relación compuesto–enfermedad)
 ASSOC ID:     Disease ID (MeSH), Chemical ID (MeSH)
