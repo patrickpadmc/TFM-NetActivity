@@ -3,6 +3,7 @@ SOURCE:       https://www.proteinatlas.org
 FILE:         normal_ihc_data.tsv.zip -> normal_ihc_data.tsv
 FORMAT:       TSV
 VERSION:      25.1
+DATE:         2026 MAY 25
 PUBLICATION:  https://doi.org/10.1002/pro.4562
 
 RELATIONS:
