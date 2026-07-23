@@ -4,6 +4,7 @@ SOURCE:       https://string-db.org
 ARCHIVOS:
   9606.protein.links.full.v12.0.txt.gz   -> interacciones PPI con todos los scores
   human.uniprot_2_string.2018.tsv.gz     -> mapeo UniProt -> STRING protein IDs
+PUBLICATION:  https://doi.org/10.1093/nar/gkac1000
 
 RELATIONS:
   GEN-ppi-GEN   Gene -> protein-protein interaction -> Gene
