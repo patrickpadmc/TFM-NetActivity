@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # =============================================================================
 # opentargets — get_data.sh
-# Fuente: Open Targets Platform 26.03
+# Fuente: Open Targets Platform 26.06
 # Contiene: GEN-ass-DIS (gene associates disease)
 #
 # NOTA sobre paths (post-25.03):
@@ -19,7 +19,7 @@ OUT_DIR="${1:-$(dirname "$0")/../../data/raw/databases/opentargets}"
 mkdir -p "$OUT_DIR"
 cd "$OUT_DIR"
 
-BASE_FTP="https://ftp.ebi.ac.uk/pub/databases/opentargets/platform/26.03/output"
+BASE_FTP="https://ftp.ebi.ac.uk/pub/databases/opentargets/platform/26.06/output"
 
 echo "[opentargets] Descargando association_overall_direct (Parquet)..."
 wget --recursive --no-parent --no-host-directories --cut-dirs 8 \
