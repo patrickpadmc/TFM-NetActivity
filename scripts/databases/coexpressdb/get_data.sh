@@ -4,7 +4,7 @@
 # Fuente: COXPRESdb v22-05 (Hsa-r.c6-0)
 # Contiene: GEN-cex-GEN (gene coexpresses gene)
 #
-# ⚠️  VERIFICAR ANTES DE EJECUTAR:
+#   VERIFICAR ANTES DE EJECUTAR:
 #   El archivo principal se infirió del índice del directorio. Confirma que
 #   este URL es correcto antes de lanzar el job:
 #   https://coxpresdb.jp/download/Hsa-r.c6-0/coex_md5/
@@ -23,7 +23,7 @@ OUT_DIR="${1:-$(dirname "$0")/../../data/raw/databases/coexpressdb}"
 mkdir -p "$OUT_DIR"
 cd "$OUT_DIR"
 
-# Archivo principal de coexpresión (⚠️ confirmar URL)
+# Archivo principal de coexpresión (confirmar URL)
 COEX_URL="https://coxpresdb.jp/download/Hsa-r.c6-0/coex_md5/Hsa-r.v22-05.G16651-S235187.combat_pca.subagging.z.d.zip"
 COEX_FILE="Hsa-r.v22-05.G16651-S235187.combat_pca.subagging.z.d.zip"
 
