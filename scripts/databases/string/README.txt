@@ -2,13 +2,13 @@ DATABASE:     STRING — string
 VERSION:      v12.0
 SOURCE:       https://string-db.org
 ARCHIVOS:
-  9606.protein.links.full.v12.0.txt.gz   → interacciones PPI con todos los scores
-  human.uniprot_2_string.2018.tsv.gz     → mapeo UniProt → STRING protein IDs
+  9606.protein.links.full.v12.0.txt.gz   -> interacciones PPI con todos los scores
+  human.uniprot_2_string.2018.tsv.gz     -> mapeo UniProt -> STRING protein IDs
 
 RELATIONS:
-  GEN-ppi-GEN   Gene → protein-protein interaction → Gene
+  GEN-ppi-GEN   Gene -> protein-protein interaction -> Gene
 
-GENE ID:      ENSG (tras mapeo STRING ID → UniProt → ENSG)
+GENE ID:      ENSG (tras mapeo STRING ID -> UniProt -> ENSG)
 ASSOC ID:     combined_score (0–1000)
 
 NOTAS:
