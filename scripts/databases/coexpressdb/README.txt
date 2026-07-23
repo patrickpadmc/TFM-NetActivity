@@ -4,11 +4,11 @@ SOURCE:       https://coxpresdb.jp
 PUBLICATION:  https://doi.org/10.1093/nar/gkac983
 
 ARCHIVOS:
-  Hsa-r.v22-05.G16651-S235187.combat_pca.subagging.z.d.zip  → coexpresión
-  supportability.ver8-0.tar.bz2                              → supportability scores
+  Hsa-r.v22-05.G16651-S235187.combat_pca.subagging.z.d.zip  -> coexpresión
+  supportability.ver8-0.tar.bz2                             -> supportability scores
 
 RELATIONS:
-  GEN-cex-GEN   Gene → coexpresses → Gene
+  GEN-cex-GEN   Gene -> coexpresses -> Gene
 
 GENE ID:      Entrez Gene ID (requiere mapeo a ENSG)
 ASSOC ID:     Entrez Gene ID del gen coexpresado
