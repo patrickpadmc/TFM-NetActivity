@@ -4,7 +4,7 @@ ARCHIVOS:
   omnipath_webservice_interactions__latest.tsv.gz   -> PPI, fosforilación, DoRothEA
   omnipath_webservice_enz_sub__latest.tsv.gz        -> enzyme-substrate (defosforilación)
 FORMAT:       TSV comprimido (gzip)
-DATE:         JUN 25 2026
+DATE:         2026 JUN 25
 PUBLICATION:  https://doi.org/10.1093/nar/gkaf1126
 
 RELATIONS:
