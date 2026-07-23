@@ -2,13 +2,14 @@ DATABASE:     Open Targets Platform — opentargets
 VERSION:      26.03 (marzo 2026)
 SOURCE:       https://platform.opentargets.org
 FORMAT:       Parquet (colecciones de archivos particionados)
+PUBLICATIONS: https://doi.org/10.1093/nar/gkae1128
 
 DESCARGA:
-  association_overall_direct/   → scores de asociación gen-enfermedad (direct)
-  disease/                      → metadata de enfermedades
+  association_overall_direct/   -> scores de asociación gen-enfermedad (direct)
+  disease/                      -> metadata de enfermedades
 
 RELATIONS:
-  GEN-ass-DIS   Gene → associates → Disease
+  GEN-ass-DIS   Gene -> associates -> Disease
 
 GENE ID:      ENSG (Ensembl Gene ID)
 ASSOC ID:     EFO / MONDO ontology IDs
