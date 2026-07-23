@@ -1,5 +1,5 @@
 DATABASE:     Open Targets Platform — opentargets
-VERSION:      26.03 (marzo 2026)
+VERSION:      26.06 (julio 2026)
 SOURCE:       https://platform.opentargets.org
 FORMAT:       Parquet (colecciones de archivos particionados)
 PUBLICATIONS: https://doi.org/10.1093/nar/gkae1128
