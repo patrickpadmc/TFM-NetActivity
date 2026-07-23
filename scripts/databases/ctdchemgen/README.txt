@@ -17,5 +17,5 @@ RELATIONS:
   CPD-upa-GEN  Compound -> increases activity -> Gene
   CPD-dwa-GEN  Compound -> decreases activity -> Gene
 
-GENE ID:      N/A (relación compuesto–enfermedad)
-ASSOC ID:     Disease ID (MeSH), Chemical ID (MeSH)
+GENE ID:      Entrez Gene ID
+ASSOC ID:     Chemical ID (MeSH)
