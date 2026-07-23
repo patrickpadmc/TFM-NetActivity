@@ -1,6 +1,8 @@
 DATABASE:     COXPRESdb — coexpressdb
 VERSION:      v22-05 (Hsa-r.c6-0)
 SOURCE:       https://coxpresdb.jp
+PUBLICATION:  https://doi.org/10.1093/nar/gkac983
+
 ARCHIVOS:
   Hsa-r.v22-05.G16651-S235187.combat_pca.subagging.z.d.zip  → coexpresión
   supportability.ver8-0.tar.bz2                              → supportability scores
@@ -11,7 +13,7 @@ RELATIONS:
 GENE ID:      Entrez Gene ID (requiere mapeo a ENSG)
 ASSOC ID:     Entrez Gene ID del gen coexpresado
 
-⚠️  VERIFICAR:
+VERIFICAR:
   El URL del archivo de coexpresión fue inferido del checksum .md5 encontrado
   en el directorio. Confirmar que el archivo ZIP es descargable antes de
   lanzar el job de SLURM.
