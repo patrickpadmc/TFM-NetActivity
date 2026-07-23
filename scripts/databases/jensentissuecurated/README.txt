@@ -2,7 +2,7 @@ DATABASE:     Jensen Lab COMPARTMENTS — jensentissuecurated
 SOURCE:       https://jensenlab.org / https://tissues.jensenlab.org
 FILE:         human_tissue_knowledge_full.tsv
 FORMAT:       TSV
-DATE:         JUL 10 2026
+DATE:         2026 JUL 10
 PUBLICATION:  https://doi.org/10.1093/database/bay003
 
 RELATIONS:
