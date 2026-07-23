@@ -2,7 +2,7 @@ DATABASE:     Comparative Toxigenomics Database — ctdchemgen
 SOURCE:       https://ctdbase.org
 FILE:         CTD_chemicals_diseases.tsv.gz
 FORMAT:       TSV comprimido (gzip)
-DATE:         JUN 29 2026
+DATE:         2026 JUN 29
 PUBLICATION:  https://doi.org/10.1093/nar/gkae883
 
 RELATIONS:
