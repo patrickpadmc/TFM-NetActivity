@@ -3,8 +3,8 @@
 # string — get_data.sh
 # Fuente: STRING v12.0 (human, taxid 9606)
 # Archivos:
-#   - 9606.protein.links.full.v12.0.txt.gz   → interacciones PPI con scores
-#   - human.uniprot_2_string.2018.tsv.gz      → mapeo UniProt → STRING IDs
+#   - 9606.protein.links.full.v12.0.txt.gz   -> interacciones PPI con scores
+#   - human.uniprot_2_string.2018.tsv.gz      -> mapeo UniProt -> STRING IDs
 # Contiene: GEN-ppi-GEN
 # =============================================================================
 set -euo pipefail
