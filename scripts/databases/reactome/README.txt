@@ -3,6 +3,7 @@ VERSION:      97
 SOURCE:       https://reactome.org
 FILE:         UniProt2Reactome_All_Levels.txt
 FORMAT:       TSV (texto plano, sin cabecera)
+DATE:         2026 JUL
 PUBLICATION:  https://doi.org/10.1093/nar/gkad1025
 
 RELATIONS:
