@@ -2,9 +2,9 @@
 # get_data.sh - descarga CTD_chem_gene_ixns.tsv.gz
 #
 # CTD bloquea descargas automatizadas con un captcha de verificacion
-# (mismo problema que ya tuvimos con Reactome). Este script intenta
-# wget, pero valida la cabecera gzip del resultado: si CTD devuelve la
-# pagina HTML del captcha en vez del fichero real, lo detecta y avisa.
+# Este script intenta wget, pero valida la cabecera gzip del resultado:
+# si CTD devuelve la pagina HTML del captcha en vez del fichero real, 
+# lo detecta y avisa.
 #
 # Uso: ./get_data.sh [raw_dir]
 
