@@ -5,8 +5,8 @@ FORMAT:       Descargado via Harmonizome API (harmonizomeapi.py)
 PUBLICATION:  https://doi.org/10.1093/database/baw100
 
 RELATIONS:    
-  CLL-bfn-GEN -> bad fitness
-  CLL-gfn-GEN -> good fitness
+  CLL-bfn-GEN -> Cell line -> bad fitness -> Gene
+  CLL-gfn-GEN -> Cell line -> good fitness -> Gene
 
 GENE ID:      Gene symbol (requiere mapeo a ENSG)
 ASSOC ID:     Cell line name
