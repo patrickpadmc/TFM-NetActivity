@@ -2,7 +2,7 @@ DATABASE:     The Drug Repurposing Hub — repohub
 SOURCE:       https://repo-hub.broadinstitute.org
 FILE:         repo-drug-annotation-20200324.txt
 FORMAT:       TSV (texto plano)
-DATE:         AUG 19 2025
+DATE:         2025 AUG 19
 
 RELATIONS:
   CPD-int-GEN   Compound -> interacts -> Gene
