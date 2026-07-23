@@ -3,8 +3,7 @@ SOURCE:       https://maayanlab.cloud/Harmonizome
 DATASET:      Achilles Cell Line Gene Essentiality Profiles
 FORMAT:       Descargado via Harmonizome API (harmonizomeapi.py)
 
-RELATIONS:
-  CLL-bfn-(PGN)-pdw-GEN   Gene perturbed down by perturbagen → bad fitness → Cell
+RELATIONS:    CLL-bfn-GEN, CLL-gfn-GEN
 
 GENE ID:      Gene symbol (requiere mapeo a ENSG)
 ASSOC ID:     Cell line name
