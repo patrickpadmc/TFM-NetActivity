@@ -134,6 +134,9 @@ def process(raw_dir: str, out_dir: str, entrez2ensg: dict, reliable_genes: set):
                 except ValueError:
                     continue
 
+                if rank < 0:
+                    rank = 0.0
+
                 if rank > cutoff:
                     skipped_above_cutoff += 1
                     continue
@@ -153,7 +156,7 @@ def process(raw_dir: str, out_dir: str, entrez2ensg: dict, reliable_genes: set):
                         # Par simetrico (igual que Bioteque)
                         pair = tuple(sorted([ensg1, ensg2]))
                         if pair in pairs:
-                            pairs[pair] = float(gmean([pairs[pair], rank]))
+                            pairs[pair] = (pairs[pair] * rank) ** 0.5
                         else:
                             pairs[pair] = rank
 

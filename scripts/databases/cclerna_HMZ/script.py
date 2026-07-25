@@ -95,7 +95,10 @@ def process(raw_dir: str, out_dir: str, symbol2ensg: dict, model2cvcl: dict):
     # Cargar expresion
     expr_path = os.path.join(raw_dir, 'OmicsExpressionTPMLogp1HumanProteinCodingGenes.csv')
     print(f'[cclerna_HMZ] Cargando {expr_path} ...')
-    df = pd.read_csv(expr_path, index_col=0, low_memory=False)
+    df = pd.read_csv(expr_path, low_memory=False)
+    df = df.set_index('ModelID')
+    meta_cols = ['SequencingID', 'ModelConditionID', 'IsDefaultEntryForMC', 'IsDefaultEntryForModel']
+    df = df.drop(columns=[c for c in meta_cols if c in df.columns])
     print(f'  Shape original: {df.shape}')
 
     # 1. Eliminar genes con >95% zeros

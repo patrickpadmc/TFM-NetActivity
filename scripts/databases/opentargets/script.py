@@ -77,7 +77,7 @@ def load_associations_chunked(raw_dir: str) -> dict:
     Retorna: {disease_id: {(ensg, score), ...}}
     Solo guarda pares que superen MINIMUM_SCORE para ahorrar memoria.
     """
-    parquet_files = sorted(glob.glob(os.path.join(raw_dir, '*.parquet')))
+    parquet_files = sorted(glob.glob(os.path.join(raw_dir, 'part-*.parquet')))
     if not parquet_files:
         raise FileNotFoundError(f'No se encontraron parquets en {raw_dir}')
 
