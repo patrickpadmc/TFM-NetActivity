@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 cclerna_HMZ -- script.py
-Procesado de CCLE RNA expression via DepMap (OmicsExpressionProteinCodingGenesTPMLogp1.csv).
+Procesado de CCLE RNA expression via DepMap (OmicsExpressionTPMLogp1HumanProteinCodingGenes.csv).
 
 Logica (fiel a Bioteque / pipeline Harmonizome):
   1. Eliminar genes con expresion cero en mas del 95% de las muestras
@@ -17,7 +17,7 @@ Parametros (identicos a Bioteque):
   max_gns = 250
 
 Archivos necesarios:
-  OmicsExpressionProteinCodingGenesTPMLogp1.csv
+  OmicsExpressionTPMLogp1HumanProteinCodingGenes.csv
   Model.csv
   symbol2ensg.tsv (HGNC)
 
@@ -93,7 +93,7 @@ def process(raw_dir: str, out_dir: str, symbol2ensg: dict, model2cvcl: dict):
     os.makedirs(out_dir, exist_ok=True)
 
     # Cargar expresion
-    expr_path = os.path.join(raw_dir, 'OmicsExpressionProteinCodingGenesTPMLogp1.csv')
+    expr_path = os.path.join(raw_dir, 'OmicsExpressionTPMLogp1HumanProteinCodingGenes.csv')
     print(f'[cclerna_HMZ] Cargando {expr_path} ...')
     df = pd.read_csv(expr_path, index_col=0, low_memory=False)
     print(f'  Shape original: {df.shape}')
