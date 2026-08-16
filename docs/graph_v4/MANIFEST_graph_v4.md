@@ -33,7 +33,7 @@
 | repohub | The Drug Repurposing Hub (dataset estático, 2020-03-24) | 2026-07-25 (subida manual, sin versión más nueva disponible) | repo-drug-annotation-20200324.txt | 5f8284538e73c19a316d1cf45ea10300de6e15c555d75ced7c1b7387457fc523 |
 | string | STRING v12.0 | verificado 2023-05-16, contenido idéntico al servido actualmente (sin release más nueva) | 9606.protein.links.full.v12.0.txt.gz | 07f9fa42ae5006ccb0b4694c17b97dd4d346c141bf769006cb6ffc4c8e04d016 |
 
-*Nota sobre "fecha del archivo fuente": para string, hpa_rna_cons y omnipath/enz_sub, la fecha no corresponde al momento de nuestra descarga sino a la última actualización de la fuente original — se verificó explícitamente (vía `curl -I`, comparando `Content-Length` y `Last-Modified`) que el contenido local es idéntico, byte a byte, al que sirve la fuente hoy.*
+*Nota sobre "fecha del archivo fuente": para string, hpa_rna_cons y omnipath/enz_sub, la fecha no corresponde al momento de la descarga sino a la última actualización de la fuente original, se verificó explícitamente (vía `curl -I`, comparando `Content-Length` y `Last-Modified`) que el contenido local es idéntico, byte a byte, al que sirve la fuente hoy.*
 
 ## Nodos por tipo
 
@@ -53,19 +53,19 @@ Ver tabla completa (38 filas) en `seccion1_auditoria_graph_v4.md`, Sección 1. T
 
 ## Reglas de filtrado y deduplicación
 
-- Cada base de datos aplica sus propios filtros de calidad de forma independiente, dentro de su `script.py`, alineados a la metodología de Bioteque (IRB Barcelona) — no se aplica ningún filtro global sobre el grafo ya integrado.
+- Cada base de datos aplica sus propios filtros de calidad de forma independiente, dentro de su `script.py`, alineados a la metodología de Bioteque (IRB Barcelona) y no se aplica ningún filtro global sobre el grafo ya integrado.
 - Deduplicación por par (node1, node2) dentro de cada combinación fuente+relación, verificada empíricamente tras la integración: 0 duplicados exactos de fila completa, 0 duplicados de par dentro de la misma fuente+relación, sobre las 110,690,581 aristas totales.
-- Identificadores homogenizados por tipo de nodo: GEN → ENSG (Ensembl Gene ID), CPD → InChIKey (con fallback a ID crudo de CTD cuando no hay mapeo disponible en Bioteque — ver limitación conocida más abajo), CLL → CVCL/RRID (DepMap), TIS → BTO, DIS → ontología nativa de cada fuente (MONDO/EFO/MeSH).
+- Identificadores homogenizados por tipo de nodo: GEN -> ENSG (Ensembl Gene ID), CPD -> InChIKey (con fallback a ID crudo de CTD cuando no hay mapeo disponible en Bioteque (ver limitación conocida más abajo)), CLL -> CVCL/RRID (DepMap), TIS -> BTO, DIS -> ontología nativa de cada fuente (MONDO/EFO/MeSH).
 - `coexpressdb` (GEN-cex-GEN): pares simetrizados mediante `tuple(sorted(...))`; en colisiones de pares duplicados (evidencia en ambos sentidos), el valor de `mutual_rank` se combina como `sqrt(a * b)` (media geométrica), con los valores negativos de origen (artefacto de piso del score log-transformado de COXPRESdb) fijados a 0.0 antes de combinar.
 
 ## Limitaciones conocidas (no bloqueantes, documentadas)
 
-- Cobertura de compuestos: no todos los compuestos de CTD/repohub tienen mapeo a InChIKey disponible en Bioteque; los que no lo tienen retienen su identificador crudo de CTD (formato MeSH, prefijo C o D indistintamente — el prefijo no distingue compuesto de enfermedad en MeSH, solo distingue encabezado principal de registro suplementario).
-- 28 nodos (14 pares) quedan fuera del componente conexo principal (99.96% del grafo), por escasez genuina de datos (evidencia única, sin corroboración cruzada entre fuentes) — no por error de homogenización. Documentados para excluir de los splits de evaluación de predicción de enlaces.
+- Cobertura de compuestos: no todos los compuestos de CTD/repohub tienen mapeo a InChIKey disponible en Bioteque; los que no lo tienen retienen su identificador crudo de CTD (formato MeSH, prefijo C o D indistintamente. El prefijo no distingue compuesto de enfermedad en MeSH, solo distingue encabezado principal de registro suplementario).
+- 28 nodos (14 pares) quedan fuera del componente conexo principal (99.96% del grafo), por escasez genuina de datos (evidencia única, sin corroboración cruzada entre fuentes), no por error de homogenización. Documentados para excluir de los splits de evaluación de predicción de enlaces.
 
 ## Semilla global
 
-`seed=42` — convención establecida del proyecto para todo paso con aleatoriedad (muestreo, splits de train/test, inicialización de modelos). La construcción de graph_v4 en sí (concatenación de las 38 tablas ya procesadas) es determinista y no usa aleatoriedad.
+`seed=42` : convención establecida del proyecto para todo paso con aleatoriedad (muestreo, splits de train/test, inicialización de modelos). La construcción de graph_v4 en sí (concatenación de las 38 tablas ya procesadas) es determinista y no usa aleatoriedad.
 
 ## Scripts de construcción y verificación
 
