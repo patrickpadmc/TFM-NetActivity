@@ -1,0 +1,21 @@
+{
+  "n_genes_subgrafo": 26330,
+  "uniprot": {
+    "n_mapeados_con_embedding": 21111,
+    "pct_mapeados_con_embedding": 80.18,
+    "n_sin_embedding": 5219,
+    "pct_sin_embedding": 19.82
+  },
+  "genept_model3": {
+    "n_mapeados_con_embedding": 25892,
+    "pct_mapeados_con_embedding": 98.34,
+    "n_sin_embedding": 438,
+    "pct_sin_embedding": 1.66
+  },
+  "estado_mapeo_breakdown": {
+    "mapeado_revisado": 21095,
+    "sin_mapeo": 5205,
+    "mapeado_revisado_desempate": 28,
+    "mapeado_no_revisado": 2
+  }
+}

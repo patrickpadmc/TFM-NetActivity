@@ -1,0 +1,14 @@
+./coverage/coverage_by_relation.tsv	2 KB
+./coverage/coverage_summary.json	1 KB
+./splits/biogrid_ensg_train_test_collisions_removed.tsv	1 KB
+./splits/biogrid_reference_nested_splits_common_ensg_summary.tsv	3 KB
+./splits/biogrid_reference_nested_splits_common_ensg.tsv	36754 KB
+./splits/go_ensg_cross_split_collisions_removed.tsv	2 KB
+./splits/go_reference_splits_common_ensg_summary.tsv	7 KB
+./splits/go_reference_splits_common_ensg.tsv	3053 KB
+./tables/biogrid_all_fold_results.tsv	11 KB
+./tables/functional_benchmark_master_summary.tsv	3 KB
+./tables/go_all_term_results.tsv	120 KB
+./tables/seccion12_hiperparametros_umbrales.tsv	9 KB
+./tables/seccion12_matriz_auprc.tsv	2 KB
+./tables/seccion12_tabla_completa.tsv	21 KB
