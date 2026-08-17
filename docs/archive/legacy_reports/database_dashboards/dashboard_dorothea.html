@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8"><title>DoRothEA Dashboard</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#fafafa;--s:#fff;--s2:#f4f4f4;--a:#7c3aed;--b:#0891b2;--c:#dc2626;--t:#1e1b4b;--m:#6b7280;--bd:#e5e7eb}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--t);padding:36px}
+  h1{font-size:2rem;font-weight:700;color:var(--a)}
+  .meta{color:var(--m);font-size:.82rem;margin-top:8px}
+  .fn{background:#ede9fe;border-left:3px solid var(--a);padding:10px 16px;font-size:.82rem;color:#4c1d95;margin:20px 0}
+  .kg{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:26px}
+  .k{background:var(--s);border:1px solid var(--bd);border-radius:8px;padding:20px;border-top:3px solid var(--a)}
+  .k.b{border-top-color:var(--b)} .k.c{border-top-color:var(--c)}
+  .v{font-family:'JetBrains Mono',monospace;font-size:1.9rem;font-weight:600;color:var(--a)}
+  .k.b .v{color:var(--b)} .k.c .v{color:var(--c)}
+  .l{font-size:.73rem;color:var(--m);margin-top:5px;text-transform:uppercase;letter-spacing:.05em}
+  .cr{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:22px}
+  .cw,.sec{background:var(--s);border:1px solid var(--bd);border-radius:8px;padding:22px;margin-bottom:22px}
+  h2{font-size:.85rem;font-weight:700;color:var(--a);margin-bottom:14px;text-transform:uppercase;letter-spacing:.05em}
+  table{width:100%;border-collapse:collapse;font-size:.82rem}
+  th{background:var(--s2);color:var(--a);padding:9px 12px;text-align:left;font-size:.72rem;text-transform:uppercase;border-bottom:2px solid var(--bd)}
+  td{padding:8px 12px;border-bottom:1px solid var(--bd)}
+  tr:hover td{background:var(--s2)}
+  canvas{max-height:250px}
+</style></head><body>
+<h1>DoRothEA — TF Regulons (Tiers A+B)</h1>
+<div class="meta">Bioconductor v1.10.0 (Dic 2025) &nbsp;·&nbsp; vía OmniPath webservice &nbsp;·&nbsp; Libre</div>
+<div class="fn"><strong>Filtro:</strong> Tiers A y B únicamente — las interacciones TF-gen con mayor respaldo experimental
+(ChIP-seq + literatura curada + motif analysis). Tier A = máxima confianza, Tier B = alta confianza.</div>
+<div class="kg">
+  <div class="k"><div class="v">15,267</div><div class="l">Interacciones TF-gen</div></div>
+  <div class="k b"><div class="v">367</div><div class="l">TFs únicos</div></div>
+  <div class="k c"><div class="v">5,151</div><div class="l">Genes diana únicos</div></div>
+  <div class="k"><div class="v">4,855</div><div class="l">Interacciones activadoras</div></div>
+</div>
+<div class="cr">
+  <div class="cw"><h2>Por tipo de regulación</h2><canvas id="signChart"></canvas></div>
+  <div class="cw"><h2>Top 10 TFs — mayor número de genes diana</h2>
+    <table><tr><th>Factor de transcripción</th><th>Genes diana</th></tr><tr><td>STAT1</td><td>727</td></tr><tr><td>CTCF</td><td>620</td></tr><tr><td>CEBPA</td><td>589</td></tr><tr><td>EGR1</td><td>563</td></tr><tr><td>HNF4A</td><td>555</td></tr><tr><td>ESR1</td><td>531</td></tr><tr><td>E2F1</td><td>529</td></tr><tr><td>ETS1</td><td>527</td></tr><tr><td>E2F4</td><td>514</td></tr><tr><td>TP53</td><td>508</td></tr></table>
+  </div>
+</div>
+<script>
+new Chart(document.getElementById('signChart'),{type:'doughnut',
+  data:{labels:["Activaci\u00f3n", "Inhibici\u00f3n", "Sin signo"],
+    datasets:[{data:[4855, 706, 9706],backgroundColor:['#7c3aed','#dc2626','#6b7280'],borderWidth:0}]},
+  options:{plugins:{legend:{position:'bottom',labels:{color:'#1e1b4b',font:{size:11}}}}}
+});
+</script></body></html>

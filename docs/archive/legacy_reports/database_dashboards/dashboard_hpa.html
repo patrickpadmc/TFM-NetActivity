@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>HPA — Dashboard</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#f7f7f2;--surface:#fff;--surface2:#f0f0e8;--navy:#1a1f3c;--teal:#00897b;--amber:#f59e0b;--rose:#e11d48;--text:#1a1f3c;--muted:#6b7280;--border:#e5e5dc}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(--text);padding:36px}
+  .header{margin-bottom:36px}
+  .header h1{font-size:2rem;font-weight:800;color:var(--navy)}
+  .header h1 span{color:var(--teal)}
+  .header .meta{color:var(--muted);font-size:.82rem;margin-top:8px}
+  .filter-note{background:#ecfdf5;border-left:3px solid var(--teal);padding:10px 16px;border-radius:0 6px 6px 0;font-size:.82rem;color:#065f46;margin-bottom:28px}
+  .kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:26px}
+  .kpi{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:20px;border-top:3px solid var(--teal)}
+  .kpi.amber{border-top-color:var(--amber)}
+  .kpi.rose{border-top-color:var(--rose)}
+  .kpi .val{font-family:'JetBrains Mono',monospace;font-size:1.9rem;font-weight:600;color:var(--navy)}
+  .kpi .lbl{font-size:.73rem;color:var(--muted);margin-top:5px;text-transform:uppercase;letter-spacing:.05em}
+  .charts-row{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:22px}
+  .chart-wrap{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:22px}
+  .chart-wrap h2{font-size:.85rem;font-weight:700;color:var(--navy);margin-bottom:14px;text-transform:uppercase;letter-spacing:.05em}
+  .section{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:22px;margin-bottom:22px}
+  .section h2{font-size:.85rem;font-weight:700;color:var(--navy);margin-bottom:14px;text-transform:uppercase;letter-spacing:.05em}
+  table{width:100%;border-collapse:collapse;font-size:.82rem}
+  th{background:var(--surface2);color:var(--navy);padding:9px 12px;text-align:left;font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;border-bottom:2px solid var(--border)}
+  td{padding:8px 12px;border-bottom:1px solid var(--border)}
+  tr:hover td{background:var(--surface2)}
+  .badge{display:inline-block;padding:2px 8px;border-radius:20px;font-size:.7rem;font-weight:600}
+  .badge-tissue-enriched{background:#d1fae5;color:#065f46}
+  .badge-group-enriched{background:#dbeafe;color:#1e40af}
+  .badge-tissue-enhanced{background:#fef3c7;color:#92400e}
+  canvas{max-height:250px}
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>Human Protein Atlas <span>HPA</span></h1>
+  <div class="meta">v25.0 (2025-11-11) &nbsp;·&nbsp; Fichero: proteinatlas.tsv &nbsp;·&nbsp; Libre (CC-BY)</div>
+</div>
+<div class="filter-note">
+  <strong>Filtro aplicado:</strong> RNA tissue specificity ∈ {Tissue enriched, Group enriched, Tissue enhanced} + Tau score ≥ 0.5.
+  El Tau score (0–1) mide la especificidad tejido-única del gen: 1 = expresión exclusiva en un tejido, 0 = expresión ubicua.
+</div>
+<div class="kpi-grid">
+  <div class="kpi"><div class="val">4,679</div><div class="lbl">Genes filtrados (Tau ≥ 0.5)</div></div>
+  <div class="kpi amber"><div class="val">4,679</div><div class="lbl">Genes únicos (ENSG)</div></div>
+  <div class="kpi rose"><div class="val">3,132</div><div class="lbl">Tissue enriched</div></div>
+  <div class="kpi"><div class="val">1,547</div><div class="lbl">Group enriched</div></div>
+</div>
+<div class="charts-row">
+  <div class="chart-wrap">
+    <h2>Por categoría de especificidad</h2>
+    <canvas id="specChart"></canvas>
+  </div>
+  <div class="chart-wrap">
+    <h2>Distribución Tau score (genes filtrados)</h2>
+    <canvas id="tauChart"></canvas>
+  </div>
+</div>
+<div class="section">
+  <h2>Top 10 genes — mayor Tau score (mayor especificidad tisular)</h2>
+  <table>
+    <tr><th>ENSG</th><th>Gen</th><th>Especificidad</th><th>Tau score</th><th>nTPM tejido específico</th></tr>
+    <tr><td>ENSG00000186579</td><td>DEFB106A</td><td><span class='badge badge-tissue-enriched'>Tissue enriched</span></td><td>17254</td><td>epididymis: 2870.7</td></tr><tr><td>ENSG00000204548</td><td>DEFB121</td><td><span class='badge badge-tissue-enriched'>Tissue enriched</span></td><td>12056</td><td>epididymis: 2453.5</td></tr><tr><td>ENSG00000178287</td><td>SPAG11A</td><td><span class='badge badge-tissue-enriched'>Tissue enriched</span></td><td>11416</td><td>epididymis: 4487.2</td></tr><tr><td>ENSG00000185982</td><td>DEFB128</td><td><span class='badge badge-tissue-enriched'>Tissue enriched</span></td><td>11250</td><td>epididymis: 1124.9</td></tr><tr><td>ENSG00000131068</td><td>DEFB118</td><td><span class='badge badge-tissue-enriched'>Tissue enriched</span></td><td>9358</td><td>epididymis: 935.8</td></tr><tr><td>ENSG00000152266</td><td>PTH</td><td><span class='badge badge-tissue-enriched'>Tissue enriched</span></td><td>8703</td><td>parathyroid gland: 47154.2</td></tr><tr><td>ENSG00000163914</td><td>RHO</td><td><span class='badge badge-tissue-enriched'>Tissue enriched</span></td><td>8422</td><td>retina: 3767.6</td></tr><tr><td>ENSG00000162438</td><td>CTRC</td><td><span class='badge badge-tissue-enriched'>Tissue enriched</span></td><td>5525</td><td>pancreas: 12512.5</td></tr><tr><td>ENSG00000142615</td><td>CELA2A</td><td><span class='badge badge-tissue-enriched'>Tissue enriched</span></td><td>5457</td><td>pancreas: 153459.5</td></tr><tr><td>ENSG00000091704</td><td>CPA1</td><td><span class='badge badge-tissue-enriched'>Tissue enriched</span></td><td>5428</td><td>pancreas: 223994.4</td></tr>
+  </table>
+</div>
+<script>
+new Chart(document.getElementById('specChart'),{
+  type:'doughnut',
+  data:{
+    labels:["Group enriched", "Tissue enriched"],
+    datasets:[{data:[1547, 3132],backgroundColor:['#00897b','#1e40af','#f59e0b'],borderWidth:0}]
+  },
+  options:{plugins:{legend:{position:'bottom',labels:{color:'#1a1f3c',font:{size:11}}}}}
+});
+new Chart(document.getElementById('tauChart'),{
+  type:'bar',
+  data:{
+    labels:["0.5-0.6", "0.6-0.7", "0.7-0.8", "0.8-0.9", "0.9-1.0"],
+    datasets:[{data:[0, 0, 0, 0, 4679],backgroundColor:'#00897b',borderRadius:4}]
+  },
+  options:{plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,ticks:{color:'#6b7280'},grid:{color:'#f0f0e8'}},x:{ticks:{color:'#6b7280'},grid:{display:false}}}}
+});
+</script>
+</body></html>
